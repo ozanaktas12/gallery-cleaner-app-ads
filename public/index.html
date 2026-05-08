@@ -1,40 +1,124 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery Cleaner</title>
+    <title>Gallery Cleaner - Fast Photo Cleanup</title>
+    <meta
+      name="description"
+      content="Gallery Cleaner helps you remove duplicates, find large files, and quickly clean your gallery with swipe actions."
+    />
     <style>
+      :root {
+        --primary: #4f46e5;
+        --primary-soft: #babaef;
+        --bg: #f5f7ff;
+        --text: #111827;
+        --muted: #4b5563;
+        --card: #ffffff;
+        --border: #e5e7eb;
+      }
+      * { box-sizing: border-box; }
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         margin: 0;
-        padding: 40px 20px;
-        background: #f6f7fb;
-        color: #1f2937;
+        color: var(--text);
+        background: linear-gradient(180deg, #eef0ff 0%, var(--bg) 40%, #ffffff 100%);
       }
-      .card {
-        max-width: 680px;
-        margin: 0 auto;
+      .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+      .hero {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 28px;
+        box-shadow: 0 8px 26px rgba(79, 70, 229, 0.1);
+      }
+      h1 { margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: -0.4px; }
+      .sub { margin-top: 10px; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 700px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border-radius: 12px;
+        padding: 10px 14px;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+      .btn.primary { background: var(--primary); color: #fff; }
+      .btn.secondary { background: #fff; color: var(--primary); border-color: #c7d2fe; }
+      .section { margin-top: 22px; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; }
+      h2 { margin: 0 0 10px; font-size: 20px; }
+      ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.7; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+      .mini {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px;
         background: #fff;
-        border-radius: 14px;
-        padding: 24px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
       }
-      code {
-        background: #f3f4f6;
-        padding: 2px 6px;
-        border-radius: 6px;
-      }
+      .mini b { display: block; margin-bottom: 6px; }
+      .links a { color: var(--primary); text-decoration: none; }
+      .links a:hover { text-decoration: underline; }
+      .muted { color: var(--muted); }
+      footer { margin-top: 16px; font-size: 13px; color: var(--muted); }
+      code { background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 7px; }
     </style>
   </head>
   <body>
-    <div class="card">
-      <h1>Gallery Cleaner</h1>
-      <p>Bu site app-ads.txt dogrulamasi icin hazirlandi.</p>
-      <p>
-        Dogrulama dosyasi:
-        <a href="/app-ads.txt"><code>/app-ads.txt</code></a>
-      </p>
-    </div>
+    <main class="wrap">
+      <section class="hero">
+        <h1>Gallery Cleaner</h1>
+        <p class="sub">
+          Clean up your gallery faster by finding duplicate/similar photos, large files, and
+          unnecessary media. Use swipe actions to keep, delete, or favorite in seconds.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.ozanaktas.gallerycleaner" target="_blank" rel="noopener noreferrer">Google Play</a>
+          <a class="btn secondary" href="https://apps.apple.com/app/id6759813496" target="_blank" rel="noopener noreferrer">App Store</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Key Features</h2>
+        <div class="grid">
+          <div class="mini">
+            <b>Quick Clean</b>
+            <span class="muted">Smooth random swipe flow for fast decisions.</span>
+          </div>
+          <div class="mini">
+            <b>Duplicate Detection</b>
+            <span class="muted">Find and compare similar/duplicate photos quickly.</span>
+          </div>
+          <div class="mini">
+            <b>Large Files</b>
+            <span class="muted">Spot heavy media files and free up storage.</span>
+          </div>
+          <div class="mini">
+            <b>Progress & Reports</b>
+            <span class="muted">Track cleaned photos and reclaimed space.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section links">
+        <h2>Support & Privacy</h2>
+        <ul>
+          <li>Support: <a href="mailto:gallerycleaner.sup@gmail.com">gallerycleaner.sup@gmail.com</a></li>
+          <li>Privacy Policy: <a href="https://sites.google.com/view/gallery-cleaner-privacy-policy/main-page" target="_blank" rel="noopener noreferrer">View policy</a></li>
+          <li>Terms (EULA): <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Apple Standard EULA</a></li>
+          <li>App Ads declaration file: <a href="/app-ads.txt"><code>/app-ads.txt</code></a></li>
+        </ul>
+      </section>
+
+      <footer>
+        Gallery Cleaner • com.ozanaktas.gallerycleaner • iOS & Android
+      </footer>
+    </main>
   </body>
 </html>
