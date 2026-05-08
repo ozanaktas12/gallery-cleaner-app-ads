@@ -6,32 +6,27 @@
     <title>Gallery Cleaner - Smart Gallery Cleanup</title>
     <meta
       name="description"
-      content="Gallery Cleaner helps you remove duplicates, large files, and unnecessary media with a fast swipe-based experience."
+      content="Gallery Cleaner helps you remove duplicates, large files, and unnecessary media with a smooth swipe-based experience."
     />
     <style>
       :root {
-        --brand: #4f46e5;
-        --brand-2: #7c3aed;
-        --dark: #0f172a;
-        --text: #111827;
-        --muted: #475569;
-        --bg: #f4f6ff;
+        --brand: #5b45f3;
+        --brand-2: #7f56ff;
+        --text: #121428;
+        --muted: #5d647d;
+        --bg: #eff0fb;
         --panel: #ffffff;
-        --line: #e2e8f0;
-        --good: #16a34a;
+        --line: #e7e9f5;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         color: var(--text);
-        background:
-          radial-gradient(1000px 400px at 90% -100px, #ddd6fe 0%, transparent 60%),
-          radial-gradient(700px 400px at -10% 20%, #c7d2fe 0%, transparent 60%),
-          var(--bg);
+        background: radial-gradient(1200px 520px at 80% -120px, #dcd8ff 0%, transparent 60%), var(--bg);
       }
       .container {
-        max-width: 1120px;
+        max-width: 1180px;
         margin: 0 auto;
         padding: 24px 16px 56px;
       }
@@ -39,43 +34,52 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 18px;
+        margin-bottom: 14px;
       }
       .logo {
         font-weight: 800;
         letter-spacing: -0.2px;
-        font-size: 20px;
+        font-size: 22px;
       }
-      .logo span {
-        color: var(--brand);
-      }
-      .pill {
+      .logo span { color: var(--brand); }
+      .lang-switch {
+        display: inline-flex;
         border: 1px solid var(--line);
         border-radius: 999px;
-        padding: 8px 12px;
-        font-size: 13px;
         background: #fff;
+      }
+      .lang-btn {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 999px;
         color: var(--muted);
+        font-weight: 700;
+      }
+      .lang-btn.active {
+        background: var(--brand);
+        color: #fff;
       }
       .hero {
-        border: 1px solid #dbe4ff;
-        background: linear-gradient(130deg, #ffffff 0%, #f8f8ff 55%, #f0f3ff 100%);
-        border-radius: 24px;
-        padding: 30px;
-        box-shadow: 0 16px 45px rgba(79, 70, 229, 0.16);
+        border: 1px solid #dde2ff;
+        background: linear-gradient(140deg, #ffffff 0%, #f8f8ff 60%, #eff2ff 100%);
+        border-radius: 26px;
+        padding: 30px 28px;
+        box-shadow: 0 18px 52px rgba(91, 69, 243, 0.15);
       }
       h1 {
         margin: 0;
         font-size: 44px;
         line-height: 1.05;
-        letter-spacing: -1px;
+        letter-spacing: -1.1px;
       }
-      .lead {
+      [data-i18n] {
         margin-top: 14px;
         color: var(--muted);
         font-size: 17px;
         line-height: 1.65;
-        max-width: 860px;
+        max-width: 900px;
       }
       .cta-row {
         margin-top: 22px;
@@ -115,7 +119,7 @@
       .stats {
         margin-top: 22px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
         gap: 10px;
       }
       .stat {
@@ -127,7 +131,7 @@
       .stat b { display: block; font-size: 21px; letter-spacing: -0.4px; }
       .stat span { color: var(--muted); font-size: 13px; }
       .section {
-        margin-top: 18px;
+        margin-top: 16px;
         border: 1px solid var(--line);
         border-radius: 20px;
         background: var(--panel);
@@ -164,12 +168,7 @@
         line-height: 1.6;
         font-size: 14px;
       }
-      .how {
-        margin-top: 14px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 10px;
-      }
+      .how { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
       .step {
         background: #f8faff;
         border: 1px solid #dbe4ff;
@@ -192,29 +191,20 @@
       .screens {
         margin-top: 14px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 12px;
       }
       .shot {
         border: 1px solid var(--line);
         border-radius: 16px;
-        min-height: 240px;
-        padding: 12px;
+        overflow: hidden;
         background: linear-gradient(180deg, #fff 0%, #f6f8ff 100%);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: var(--muted);
-        font-size: 13px;
       }
-      .dot {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: #e0e7ff;
-        margin-bottom: 10px;
+      .shot img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
       }
       .trust-list {
         margin: 12px 0 0;
@@ -228,11 +218,7 @@
         align-items: flex-start;
         margin: 8px 0;
       }
-      .tick {
-        color: var(--good);
-        font-weight: 800;
-        margin-top: 1px;
-      }
+      .tick { color: #14b86f; font-weight: 800; margin-top: 1px; }
       .links a {
         color: var(--brand);
         text-decoration: none;
@@ -276,108 +262,227 @@
     <main class="container">
       <nav class="nav">
         <div class="logo">Gallery <span>Cleaner</span></div>
-        <div class="pill">iOS + Android</div>
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang-target="tr">TR</button>
+          <button class="lang-btn" data-lang-target="en">EN</button>
+        </div>
       </nav>
 
       <section class="hero">
-        <h1>Clear your gallery in minutes.</h1>
-        <p class="lead">
-          Find duplicates, similar photos, and large files with a smooth swipe experience.
-          Keep what matters, remove what does not.
+        <h1 data-i18n="hero_title">Galerini dakikalar icinde temizle.</h1>
+        <p data-i18n="hero_sub_1">
+          Yinelenen/benzer fotolari ve buyuk dosyalari akici bir kaydirma deneyimiyle bul.
+          Gereksizleri sil, onemli anlari sakla.
         </p>
-        <p class="lead">
-          Galerini dakikalar icinde temizle. Yinelenen/benzer fotolari ve buyuk dosyalari bul,
-          kaydirarak hizlica karar ver.
+        <p data-i18n="hero_sub_2">
+          Gallery Cleaner hem hizli hem de guvenli bir galeri temizleme deneyimi sunar.
         </p>
         <div class="cta-row">
           <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.ozanaktas.gallerycleaner" target="_blank" rel="noopener noreferrer">Google Play</a>
           <a class="btn btn-ios" href="https://apps.apple.com/app/id6759813496" target="_blank" rel="noopener noreferrer">App Store</a>
-          <a class="btn btn-ghost" href="#features">Features / Ozellikler</a>
+          <a class="btn btn-ghost" href="#features" data-i18n="hero_third_btn">Ozellikler</a>
         </div>
         <div class="stats">
-          <div class="stat"><b>Quick Clean</b><span>Fast random swipe sessions</span></div>
-          <div class="stat"><b>Duplicates</b><span>Compare and remove safely</span></div>
-          <div class="stat"><b>Large Files</b><span>Recover storage instantly</span></div>
-          <div class="stat"><b>Privacy First</b><span>Your media stays on device</span></div>
+          <div class="stat"><b data-i18n="stat_1_title">Hizli Temizle</b><span data-i18n="stat_1_sub">Akici rastgele kaydirma oturumlari</span></div>
+          <div class="stat"><b data-i18n="stat_2_title">Yinelenenler</b><span data-i18n="stat_2_sub">Guvenli karsilastirma ve silme</span></div>
+          <div class="stat"><b data-i18n="stat_3_title">Buyuk Dosyalar</b><span data-i18n="stat_3_sub">Aninda depolama geri kazanimi</span></div>
+          <div class="stat"><b data-i18n="stat_4_title">Gizlilik Odakli</b><span data-i18n="stat_4_sub">Medya cihazinda kalir</span></div>
         </div>
       </section>
 
       <section class="section" id="features">
-        <h2>Features / Ozellikler</h2>
-        <p class="head">Everything you need for a cleaner gallery and more free space.</p>
+        <h2 data-i18n="features_title">Ozellikler</h2>
+        <p class="head" data-i18n="features_sub">Daha temiz galeri ve daha fazla bos alan icin ihtiyacin olan her sey.</p>
         <div class="grid">
           <article class="card">
-            <h3>Quick Clean / Hizli Temizle</h3>
-            <p>Swipe through photos with a fluid UI and decide what to keep in seconds.</p>
+            <h3 data-i18n="card_1_title">Hizli Temizle</h3>
+            <p data-i18n="card_1_sub">Akici arayuzle fotolar arasinda kaydir ve saniyeler icinde karar ver.</p>
           </article>
           <article class="card">
-            <h3>Duplicate Detection / Yinelenen Tespiti</h3>
-            <p>Find visually similar or duplicate photos and compare them in one place.</p>
+            <h3 data-i18n="card_2_title">Yinelenen Tespiti</h3>
+            <p data-i18n="card_2_sub">Benzer veya ayni fotolari tek yerde bul ve kolayca karsilastir.</p>
           </article>
           <article class="card">
-            <h3>Large Files / Buyuk Dosyalar</h3>
-            <p>Instantly detect heavy files and reclaim precious storage space.</p>
+            <h3 data-i18n="card_3_title">Buyuk Dosyalar</h3>
+            <p data-i18n="card_3_sub">Yer kaplayan dosyalari aninda tespit et ve depolama alani kazan.</p>
           </article>
           <article class="card">
-            <h3>Progress Reports / Ilerleme Raporlari</h3>
-            <p>Track cleaned items and see how much storage you recovered.</p>
+            <h3 data-i18n="card_4_title">Ilerleme Raporlari</h3>
+            <p data-i18n="card_4_sub">Temizlenen ogeleri ve geri kazanilan depolamayi takip et.</p>
           </article>
         </div>
       </section>
 
       <section class="section">
-        <h2>How it works / Nasil calisir</h2>
-        <p class="head">Simple flow, safe decisions, faster cleanup.</p>
+        <h2 data-i18n="how_title">Nasil Calisir</h2>
+        <p class="head" data-i18n="how_sub">Basit akis, guvenli kararlar, daha hizli temizlik.</p>
         <div class="how">
           <div class="step">
             <div class="n">1</div>
-            <b>Scan</b>
-            <p>App analyzes your gallery categories (duplicates, large files, random clean).</p>
+            <b data-i18n="step_1_title">Tara</b>
+            <p data-i18n="step_1_sub">Uygulama galerini kategorilere ayirir (yinelenenler, buyuk dosyalar, hizli temizle).</p>
           </div>
           <div class="step">
             <div class="n">2</div>
-            <b>Review</b>
-            <p>Preview photos, compare similar items, and keep control over every action.</p>
+            <b data-i18n="step_2_title">Incele</b>
+            <p data-i18n="step_2_sub">Fotolari onizle, benzerleri karsilastir ve tum adimlari kontrol et.</p>
           </div>
           <div class="step">
             <div class="n">3</div>
-            <b>Clean</b>
-            <p>Delete unnecessary media and enjoy more storage with a cleaner gallery.</p>
+            <b data-i18n="step_3_title">Temizle</b>
+            <p data-i18n="step_3_sub">Gereksiz medyalari sil ve daha temiz bir galeriye gec.</p>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <h2>App Preview / Uygulama Onizleme</h2>
-        <p class="head">You can replace these cards with real screenshots anytime.</p>
+        <h2 data-i18n="shots_title">Uygulama Ekran Goruntuleri</h2>
+        <p class="head" data-i18n="shots_sub">Gercek uygulama ekranlari ile one cikan ozellikler.</p>
         <div class="screens">
-          <div class="shot"><div class="dot"></div>Quick Clean Screen<br />Placeholder</div>
-          <div class="shot"><div class="dot"></div>Duplicate Compare<br />Placeholder</div>
-          <div class="shot"><div class="dot"></div>Large Files List<br />Placeholder</div>
-          <div class="shot"><div class="dot"></div>Stats & Progress<br />Placeholder</div>
+          <div class="shot"><img src="/screenshots/01-first.png" alt="Gallery Cleaner screenshot 1" loading="lazy" /></div>
+          <div class="shot"><img src="/screenshots/02-second.png" alt="Gallery Cleaner screenshot 2" loading="lazy" /></div>
+          <div class="shot"><img src="/screenshots/03-third.png" alt="Gallery Cleaner screenshot 3" loading="lazy" /></div>
+          <div class="shot"><img src="/screenshots/04-fourth.png" alt="Gallery Cleaner screenshot 4" loading="lazy" /></div>
+          <div class="shot"><img src="/screenshots/05-fifth.png" alt="Gallery Cleaner screenshot 5" loading="lazy" /></div>
         </div>
       </section>
 
       <section class="section links">
-        <h2>Trust, Support & Privacy</h2>
+        <h2 data-i18n="support_title">Guven, Destek ve Gizlilik</h2>
         <ul class="trust-list">
-          <li><span class="tick">✓</span><span>Support: <a href="mailto:gallerycleaner.sup@gmail.com">gallerycleaner.sup@gmail.com</a></span></li>
-          <li><span class="tick">✓</span><span>Privacy Policy: <a href="https://sites.google.com/view/gallery-cleaner-privacy-policy/main-page" target="_blank" rel="noopener noreferrer">View policy</a></span></li>
-          <li><span class="tick">✓</span><span>Terms (EULA): <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Apple Standard EULA</a></span></li>
-          <li><span class="tick">✓</span><span>App ads declaration file: <a href="/app-ads.txt"><code>/app-ads.txt</code></a></span></li>
+          <li><span class="tick">✓</span><span><span data-i18n="support_mail_label">Destek</span>: <a href="mailto:gallerycleaner.sup@gmail.com">gallerycleaner.sup@gmail.com</a></span></li>
+          <li><span class="tick">✓</span><span><span data-i18n="support_privacy_label">Gizlilik Politikasi</span>: <a href="https://sites.google.com/view/gallery-cleaner-privacy-policy/main-page" target="_blank" rel="noopener noreferrer" data-i18n="support_privacy_link">Goruntule</a></span></li>
+          <li><span class="tick">✓</span><span><span data-i18n="support_terms_label">Kullanim Kosullari (EULA)</span>: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" data-i18n="support_terms_link">Apple Standard EULA</a></span></li>
+          <li><span class="tick">✓</span><span><span data-i18n="support_ads_label">App ads dosyasi</span>: <a href="/app-ads.txt"><code>/app-ads.txt</code></a></span></li>
         </ul>
       </section>
 
       <section class="cta-bottom">
-        <h3>Start cleaning your gallery today.</h3>
-        <p>Download Gallery Cleaner on your favorite platform and free up space in minutes.</p>
+        <h3 data-i18n="bottom_title">Galeri temizligine hemen basla.</h3>
+        <p data-i18n="bottom_sub">Gallery Cleaner'i indir, dakikalar icinde depolama alani kazan.</p>
         <div class="cta-row">
-          <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.ozanaktas.gallerycleaner" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
-          <a class="btn btn-ios" href="https://apps.apple.com/app/id6759813496" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+          <a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.ozanaktas.gallerycleaner" target="_blank" rel="noopener noreferrer" data-i18n="bottom_btn_1">Google Play'de Ac</a>
+          <a class="btn btn-ios" href="https://apps.apple.com/app/id6759813496" target="_blank" rel="noopener noreferrer" data-i18n="bottom_btn_2">App Store'da Ac</a>
         </div>
       </section>
 
-      <footer>Gallery Cleaner • com.ozanaktas.gallerycleaner • Built for iOS and Android</footer>
+      <footer data-i18n="footer_text">Gallery Cleaner • com.ozanaktas.gallerycleaner • iOS ve Android icin</footer>
     </main>
+    <script>
+      const dict = {
+        tr: {
+          hero_title: "Galerini dakikalar icinde temizle.",
+          hero_sub_1:
+            "Yinelenen/benzer fotolari ve buyuk dosyalari akici bir kaydirma deneyimiyle bul. Gereksizleri sil, onemli anlari sakla.",
+          hero_sub_2: "Gallery Cleaner hem hizli hem de guvenli bir galeri temizleme deneyimi sunar.",
+          hero_third_btn: "Ozellikler",
+          stat_1_title: "Hizli Temizle",
+          stat_1_sub: "Akici rastgele kaydirma oturumlari",
+          stat_2_title: "Yinelenenler",
+          stat_2_sub: "Guvenli karsilastirma ve silme",
+          stat_3_title: "Buyuk Dosyalar",
+          stat_3_sub: "Aninda depolama geri kazanimi",
+          stat_4_title: "Gizlilik Odakli",
+          stat_4_sub: "Medya cihazinda kalir",
+          features_title: "Ozellikler",
+          features_sub: "Daha temiz galeri ve daha fazla bos alan icin ihtiyacin olan her sey.",
+          card_1_title: "Hizli Temizle",
+          card_1_sub: "Akici arayuzle fotolar arasinda kaydir ve saniyeler icinde karar ver.",
+          card_2_title: "Yinelenen Tespiti",
+          card_2_sub: "Benzer veya ayni fotolari tek yerde bul ve kolayca karsilastir.",
+          card_3_title: "Buyuk Dosyalar",
+          card_3_sub: "Yer kaplayan dosyalari aninda tespit et ve depolama alani kazan.",
+          card_4_title: "Ilerleme Raporlari",
+          card_4_sub: "Temizlenen ogeleri ve geri kazanilan depolamayi takip et.",
+          how_title: "Nasil Calisir",
+          how_sub: "Basit akis, guvenli kararlar, daha hizli temizlik.",
+          step_1_title: "Tara",
+          step_1_sub: "Uygulama galerini kategorilere ayirir (yinelenenler, buyuk dosyalar, hizli temizle).",
+          step_2_title: "Incele",
+          step_2_sub: "Fotolari onizle, benzerleri karsilastir ve tum adimlari kontrol et.",
+          step_3_title: "Temizle",
+          step_3_sub: "Gereksiz medyalari sil ve daha temiz bir galeriye gec.",
+          shots_title: "Uygulama Ekran Goruntuleri",
+          shots_sub: "Gercek uygulama ekranlari ile one cikan ozellikler.",
+          support_title: "Guven, Destek ve Gizlilik",
+          support_mail_label: "Destek",
+          support_privacy_label: "Gizlilik Politikasi",
+          support_privacy_link: "Goruntule",
+          support_terms_label: "Kullanim Kosullari (EULA)",
+          support_terms_link: "Apple Standard EULA",
+          support_ads_label: "App ads dosyasi",
+          bottom_title: "Galeri temizligine hemen basla.",
+          bottom_sub: "Gallery Cleaner'i indir, dakikalar icinde depolama alani kazan.",
+          bottom_btn_1: "Google Play'de Ac",
+          bottom_btn_2: "App Store'da Ac",
+          footer_text: "Gallery Cleaner • com.ozanaktas.gallerycleaner • iOS ve Android icin",
+        },
+        en: {
+          hero_title: "Clean your gallery in minutes.",
+          hero_sub_1:
+            "Find duplicates, similar photos, and large files with a smooth swipe experience. Keep what matters, remove what does not.",
+          hero_sub_2: "Gallery Cleaner offers a fast and safe gallery cleanup flow.",
+          hero_third_btn: "Features",
+          stat_1_title: "Quick Clean",
+          stat_1_sub: "Smooth random swipe sessions",
+          stat_2_title: "Duplicates",
+          stat_2_sub: "Safe compare and remove",
+          stat_3_title: "Large Files",
+          stat_3_sub: "Instant storage recovery",
+          stat_4_title: "Privacy First",
+          stat_4_sub: "Your media stays on device",
+          features_title: "Features",
+          features_sub: "Everything you need for a cleaner gallery and more free space.",
+          card_1_title: "Quick Clean",
+          card_1_sub: "Swipe through photos with a fluid UI and decide what to keep in seconds.",
+          card_2_title: "Duplicate Detection",
+          card_2_sub: "Find similar or duplicate photos and compare them in one place.",
+          card_3_title: "Large Files",
+          card_3_sub: "Detect heavy files instantly and recover valuable storage.",
+          card_4_title: "Progress Reports",
+          card_4_sub: "Track cleaned items and see how much storage you recovered.",
+          how_title: "How It Works",
+          how_sub: "Simple flow, safe decisions, faster cleanup.",
+          step_1_title: "Scan",
+          step_1_sub: "The app analyzes your gallery into categories such as duplicates and large files.",
+          step_2_title: "Review",
+          step_2_sub: "Preview photos, compare similar items, and keep control over every action.",
+          step_3_title: "Clean",
+          step_3_sub: "Delete unnecessary media and enjoy more free space.",
+          shots_title: "App Screenshots",
+          shots_sub: "Real app screens that highlight core features.",
+          support_title: "Trust, Support and Privacy",
+          support_mail_label: "Support",
+          support_privacy_label: "Privacy Policy",
+          support_privacy_link: "View",
+          support_terms_label: "Terms (EULA)",
+          support_terms_link: "Apple Standard EULA",
+          support_ads_label: "App ads file",
+          bottom_title: "Start cleaning your gallery today.",
+          bottom_sub: "Download Gallery Cleaner and free up space in minutes.",
+          bottom_btn_1: "Get it on Google Play",
+          bottom_btn_2: "Download on the App Store",
+          footer_text: "Gallery Cleaner • com.ozanaktas.gallerycleaner • Built for iOS and Android",
+        },
+      };
+
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[lang][key]) el.textContent = dict[lang][key];
+        });
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.langTarget === lang);
+        });
+        localStorage.setItem("gc_lang", lang);
+      }
+
+      const initialLang = localStorage.getItem("gc_lang") || "tr";
+      setLang(initialLang);
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.addEventListener("click", () => setLang(btn.dataset.langTarget));
+      });
+    </script>
   </body>
 </html>
