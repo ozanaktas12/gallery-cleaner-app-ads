@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -478,7 +478,7 @@
         localStorage.setItem("gc_lang", lang);
       }
 
-      const initialLang = localStorage.getItem("gc_lang") || "tr";
+      const initialLang = localStorage.getItem("gc_lang") || "en";
       setLang(initialLang);
       document.querySelectorAll(".lang-btn").forEach((btn) => {
         btn.addEventListener("click", () => setLang(btn.dataset.langTarget));
